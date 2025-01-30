@@ -1,16 +1,88 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MoviesHD" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+    <style name="Theme.MoviesHD" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/md_theme_night_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_night_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_night_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_night_onPrimaryContainer</item>
+        <item name="colorPrimaryInverse">@color/md_theme_night_inversePrimary</item>
+        <item name="colorPrimaryDark">@color/md_theme_night_colorPrimaryDark</item>
+
+        <item name="colorSecondary">@color/md_theme_night_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_night_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_night_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_night_onSecondaryContainer</item>
+
+        <item name="colorTertiary">@color/md_theme_night_tertiary</item>
+        <item name="colorOnTertiary">@color/md_theme_night_onTertiary</item>
+        <item name="colorTertiaryContainer">@color/md_theme_night_tertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/md_theme_night_onTertiaryContainer</item>
+
+
+        <item name="background">@color/md_theme_night_background</item>
+        <item name="colorOnBackground">@color/md_theme_night_onBackground</item>
+        <item name="android:windowBackground">@color/md_theme_night_windowBackground</item>
+
+        <item name="colorSurface">@color/md_theme_night_surface</item>
+        <item name="colorOnSurface">@color/md_theme_night_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_night_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_night_onSurfaceVariant</item>
+        <item name="colorSurfaceInverse">@color/md_theme_night_inverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/md_theme_night_inverseOnSurface</item>
+        <item name="colorOutline">@color/md_theme_night_outline</item>
+        <item name="colorOutlineVariant">@color/md_theme_night_outlineVariant</item>
+
+        <item name="colorError">@color/md_theme_night_error</item>
+        <item name="colorErrorContainer">@color/md_theme_night_errorContainer</item>
+        <item name="colorOnError">@color/md_theme_night_onError</item>
+        <item name="colorOnErrorContainer">@color/md_theme_night_onErrorContainer</item>
+
+        <!-- TextAppereance color -->
+        <item name="android:textColor">@color/textColor_night</item>    <!--Atributo xml para establecer un color en el texto de cualquier vista dada.-->
+        <item name="android:textColorPrimary">@color/textColorPrimary_night</item>  <!--El color de texto más destacado: color de texto predeterminado para los botones habilitados y las vistas de texto grandes -->
+        <item name="android:textColorSecondary">@color/textColorSecondary_night</item>  <!--Color de texto secundario: color de texto predeterminado para las vistas de texto medianas y pequeñas. -->
+        <item name="android:textColorHint">@color/textColorHintDisabled_night</item>    <!--Sugerencias y texto deshabilitado-->
+
+        <item name="colorAccent">#344325</item>
+        <item name="colorControlNormal">#344325</item>
+        <item name="colorControlActivated">#344325</item>
+        <item name="colorControlHighlight">#344325</item>   <!-- Pendiente en night -->
+
+        <item name="android:statusBarColor">@color/md_theme_night_windowBackground</item>
+        <item name="android:windowLightStatusBar">false</item> <!-- Pendiente en night -->
+        <item name="android:navigationBarColor">#000000</item>
+
+
+        <!--Colores pendientes-->
+        <item name="colorPrimaryVariant">#67CD00</item>
+        <item name="colorSecondaryVariant">#FFEB3B</item>
+        <item name="colorPrimarySurface">#A6656A</item>
+        <item name="colorOnPrimarySurface">#0021FF</item>
+        <item name="chipSurfaceColor">#328132</item>
+
     </style>
+
+    <style name="DialogTheme" parent="Theme.MoviesHD">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <!--SPLASCREEN FOR APIS <= 30 ANDROID 11-->
+    <style name="SplashScreenTheme" parent="Theme.SplashScreen.IconBackground">
+
+
+        <item name="windowSplashScreenBackground">@color/md_theme_night_windowBackground</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!--<item name="android:windowBackground">@drawable/splash_api_android_down_30</item>-->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/img432</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+
+        <item name="postSplashScreenTheme">@style/Theme.MoviesHD</item>
+    </style>
+
 </resources>
