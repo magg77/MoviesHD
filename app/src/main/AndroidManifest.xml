@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permiso para acceder a Internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permiso para acceder al estado de la red Internet -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".core.valueObject.MoviesHdApplication"
         android:allowBackup="true"
