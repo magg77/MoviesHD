@@ -5,11 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.maggiver.movieshd.core.valueObject.AdapterMovies
 import com.maggiver.movieshd.core.valueObject.ResourceState
 import com.maggiver.movieshd.databinding.FragmentHomeBinding
 import com.maggiver.movieshd.homeMovie.presentation.NowPlayingViewModel
@@ -20,11 +24,8 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
-
     private val viewModelPopularMovie by viewModels<NowPlayingViewModel>()
 
     override fun onCreateView(
@@ -40,6 +41,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupLayots()
         setupObservers()
 
     }
@@ -49,6 +51,13 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
+    //custom methods *******************************************************************************
+
+    private fun setupLayots() {
+        binding.rvHomeFragment.layoutManager = GridLayoutManager(
+            requireContext(), 2, LinearLayoutManager.VERTICAL, false
+        )
+    }
 
     private fun setupObservers() {
 
@@ -60,16 +69,30 @@ class HomeFragment : Fragment() {
                     when(it){
 
                         is ResourceState.LoadingState -> {
-                            Log.i("moviesnow", "Cargando data movies")
+                            binding.psHome.visibility = View.VISIBLE
                         }
 
                         is ResourceState.SuccesState -> {
-                            val data = it.data
-                            Log.i("moviesnow", "Cargando data movies $data")
+                            binding.psHome.visibility = View.GONE
+
+                            binding.rvHomeFragment.adapter =
+                                AdapterMovies(
+                                    context = requireContext(),
+                                    moviesList = it.data,
+                                    onItemClickListener = { dataResult ->
+                                            Log.i("data", "$dataResult")
+                                    }
+                                )
+
                         }
 
                         is ResourceState.FailureState -> {
-                            Log.i("moviesnow", "Cargando data movies")
+                            binding.psHome.visibility = View.GONE
+                            Toast.makeText(
+                                requireContext(),
+                                "Ocurrio un error al mostrar los datos: ${it.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
 
                         else -> {
