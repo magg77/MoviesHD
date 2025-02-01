@@ -6,4 +6,11 @@
     <string name="ltimas_en_cine">Últimas en cine</string>
     <string name="description_movie">Description movie</string>
     <string name="title_movie">Title Movie</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="icon_count">Icon count</string>
+    <string name="icon_popularity">Icon popularity</string>
+    <string name="agregar_a_favoritos">Agregar a Favoritos</string>
+    <string name="image_path_poster_movie">Image path poster movie</string>
+    <string name="icon_date_release">Icon date release</string>
 </resources>

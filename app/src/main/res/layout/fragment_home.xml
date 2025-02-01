@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeMovie.ui.HomeFragment">
+    tools:context=".homeMovie.ui.HomeFragment"
+    tools:ignore="ExtraText">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_home_tittle_label"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/ltimas_en_cine"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="start"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,8 +31,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_tittle_label"
-        tools:listitem="@layout/movie_card_view"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_tittle_label"/>
+        <!--tools:listitem="@layout/movie_card_view"-->
 
     <ProgressBar
         android:id="@+id/ps_home"

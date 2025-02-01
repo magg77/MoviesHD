@@ -13,8 +13,8 @@ import com.maggiver.movieshd.homeMovie.data.provider.remote.model.MovieCustom
 class AdapterMovies(
     private val context: Context,
     private val moviesList: List<MovieCustom>,
-    private val onItemClickListener : (MovieCustom) -> Unit
-): RecyclerView.Adapter<BaseViewHolder<*>>() {
+    private val onItemClickListener: (MovieCustom) -> Unit
+) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
         val itemBinding = MovieCardViewBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -36,17 +36,21 @@ class AdapterMovies(
 
         override fun bind(item: MovieCustom, position: Int) = with(binding) {
 
-            Glide.with(context).load("${Constants.IMG_MOVIE_DB_COVER}${item.posterPath}")
+            Glide.with(context)
+                .load("${Constants.IMG_MOVIE_DB_COVER}${item.posterPath}")
                 .into(imvMovie)
 
             tvTitleMovie.text = item.title
-            tvDescripShort.text = item.overview.takeIf { it.isNotBlank() } ?: "Sin descripción disponible."
+            tvDescripShort.text =
+                item.overview.takeIf { it.isNotBlank() } ?: "Sin descripción disponible."
+
             binding.contentCardView.setOnClickListener {
                 onItemClickListener(moviesList[position])
             }
-        }
-    }
 
+        }
+        
+    }
 
 
 }

@@ -4,7 +4,8 @@
 
     <!-- Light Theme Colors ______________________________________________________________ -->
 
-    <color name="md_theme_light_primary">#0E0221</color>    <!--Text label color (active) BottomNavigation -->
+    <color name="md_theme_light_primary">#0E0221
+    </color>    <!--Text label color (active) BottomNavigation -->
     <color name="md_theme_light_onPrimary">#E00000</color>
     <color name="md_theme_light_primaryContainer">#7D5BA6</color>
     <color name="md_theme_light_onPrimaryContainer">#37003C</color>
@@ -53,10 +54,10 @@
     <color name="textColorInactiveIcons_light">#80FFFFFF</color>    <!-- pendiente -->
 
 
-
     <!-- Night Theme Colors ______________________________________________________________ -->
 
-    <color name="md_theme_night_primary">#FFFFFF</color>    <!--Text label color (active) BottomNavigation -->
+    <color name="md_theme_night_primary">#FFFFFF
+    </color>    <!--Text label color (active) BottomNavigation -->
     <color name="md_theme_night_onPrimary">#FFFFFF</color>
     <color name="md_theme_night_primaryContainer">#37003C</color>
     <color name="md_theme_night_onPrimaryContainer">#FFD6F9</color>
@@ -78,7 +79,8 @@
     <color name="md_theme_night_windowBackground">#070014</color>
 
     <color name="md_theme_night_surface">#0E0221</color>    <!--Container BottomNavigation -->
-    <color name="md_theme_night_onSurface">#8A8A8A</color>  <!--Text label color (inActive) BottomNavigation -->
+    <color name="md_theme_night_onSurface">#8A8A8A
+    </color>  <!--Text label color (inActive) BottomNavigation -->
     <color name="md_theme_night_surfaceVariant">#4D444B</color>
     <color name="md_theme_night_onSurfaceVariant">#EDE0F4</color>
     <color name="md_theme_night_inverseSurface">#E6E6E6</color>
@@ -102,5 +104,10 @@
     <color name="textColorDividers_night">#1FFFFFFF</color>
     <color name="textColorActiveIcons_night">#8A000000</color>
     <color name="textColorInactiveIcons_night">#61000000</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 
 </resources>

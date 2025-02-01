@@ -11,11 +11,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maggiver.movieshd.core.valueObject.AdapterMovies
 import com.maggiver.movieshd.core.valueObject.ResourceState
 import com.maggiver.movieshd.databinding.FragmentHomeBinding
+import com.maggiver.movieshd.homeMovie.data.provider.remote.model.MovieCustom
 import com.maggiver.movieshd.homeMovie.presentation.NowPlayingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -80,7 +82,12 @@ class HomeFragment : Fragment() {
                                     context = requireContext(),
                                     moviesList = it.data,
                                     onItemClickListener = { dataResult ->
-                                            Log.i("data", "$dataResult")
+                                            Log.i("movieclick", "$dataResult")
+
+                                        val action = HomeFragmentDirections.actionNavigationHomeToDetailMovieFragmentFullScreen(
+                                            movieCustom = dataResult
+                                        )
+                                        findNavController().navigate(action)
                                     }
                                 )
 

@@ -39,10 +39,14 @@
         <item name="colorOnErrorContainer">@color/md_theme_night_onErrorContainer</item>
 
         <!-- TextAppereance color -->
-        <item name="android:textColor">@color/textColor_night</item>    <!--Atributo xml para establecer un color en el texto de cualquier vista dada.-->
-        <item name="android:textColorPrimary">@color/textColorPrimary_night</item>  <!--El color de texto más destacado: color de texto predeterminado para los botones habilitados y las vistas de texto grandes -->
-        <item name="android:textColorSecondary">@color/textColorSecondary_night</item>  <!--Color de texto secundario: color de texto predeterminado para las vistas de texto medianas y pequeñas. -->
-        <item name="android:textColorHint">@color/textColorHintDisabled_night</item>    <!--Sugerencias y texto deshabilitado-->
+        <item name="android:textColor">@color/textColor_night
+        </item>    <!--Atributo xml para establecer un color en el texto de cualquier vista dada.-->
+        <item name="android:textColorPrimary">@color/textColorPrimary_night
+        </item>  <!--El color de texto más destacado: color de texto predeterminado para los botones habilitados y las vistas de texto grandes -->
+        <item name="android:textColorSecondary">@color/textColorSecondary_night
+        </item>  <!--Color de texto secundario: color de texto predeterminado para las vistas de texto medianas y pequeñas. -->
+        <item name="android:textColorHint">@color/textColorHintDisabled_night
+        </item>    <!--Sugerencias y texto deshabilitado-->
 
         <item name="colorAccent">#344325</item>
         <item name="colorControlNormal">#344325</item>
@@ -64,9 +68,11 @@
     </style>
 
     <style name="DialogTheme" parent="Theme.MoviesHD">
+        <item name="android:windowIsFloating">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
-        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
     </style>
 
     <!--SPLASCREEN FOR APIS <= 30 ANDROID 11-->
