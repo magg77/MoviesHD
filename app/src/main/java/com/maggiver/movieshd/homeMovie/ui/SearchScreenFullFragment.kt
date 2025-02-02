@@ -2,28 +2,31 @@ package com.maggiver.movieshd.homeMovie.ui
 
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.WindowManager
+import android.widget.Button
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.navArgs
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.maggiver.movieshd.R
 import com.maggiver.movieshd.core.utils.Constants
 import com.maggiver.movieshd.databinding.FragmentDetailMovieFullScreenBinding
+import com.maggiver.movieshd.databinding.FragmentSearchScreenFullBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class DetailMovieFragmentFullScreen : DialogFragment() {
+class SearchScreenFullFragment : DialogFragment() {
 
-
-    private var _binding: FragmentDetailMovieFullScreenBinding? = null
+    private var _binding: FragmentSearchScreenFullBinding? = null
     private val binding get() = _binding!!
-    private val args by navArgs<DetailMovieFragmentFullScreenArgs>()
 
     private var backPressedCallback: OnBackPressedCallback? = null
 
@@ -38,7 +41,7 @@ class DetailMovieFragmentFullScreen : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         isCancelable = false
-        _binding = FragmentDetailMovieFullScreenBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchScreenFullBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -57,26 +60,9 @@ class DetailMovieFragmentFullScreen : DialogFragment() {
         return dialog
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvTitleMovieDetail.text = args.movieCustom.title
-        Glide.with(requireContext())
-            .load("${Constants.IMG_MOVIE_DB_COVER}${args.movieCustom.posterPath}")
-            .apply(
-                RequestOptions()
-                    .centerCrop()
-                    .placeholder(R.drawable.baseline_add_a_photo_24)
-                    .error(R.drawable.baseline_adb_24)
-            )
-            .into(binding.imageMovieDetail)
-
-        binding.tvVote.text = "${args.movieCustom.voteCount}"
-        binding.tvDateRelease.text = args.movieCustom.releaseDate
-        binding.tvPopularity.text = "${args.movieCustom.popularity}"
-        binding.tvDescripcionDetalle.text =
-            args.movieCustom.overview.takeIf { it.isNotBlank() } ?: "Sin descripción disponible."
 
     }
 
@@ -99,6 +85,9 @@ class DetailMovieFragmentFullScreen : DialogFragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 
 
 }

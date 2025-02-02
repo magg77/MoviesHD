@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#0E0221</color>    <!--Text label color (active) BottomNavigation -->
+    <color name="colorOnPrimary">#FFFDFD</color>
+    <color name="colorPrimaryContainer">#DB0037</color>
+    <color name="colorOnPrimaryContainer">#FFD6F9</color>
+    <color name="colorInversePrimary">#FBACF8</color>
+
+    <color name="colorSecondary">#FFD54F</color>
+    <color name="colorOnSecondary">#FFDF01</color>
+    <color name="colorSecondaryContainer">#FFD700</color>
+    <color name="colorOnSecondaryContainer">#FFD54F</color>
+
+    <color name="colorTertiary">#A78674</color>
+    <color name="colorOnTertiary">#FFFFFF</color>
+    <color name="colorTertiaryContainer">#74512E</color>
+    <color name="colorOnTertiaryContainer">#FFDAB9</color>
+
+    <color name="colorBackground">#DE0404</color>
+    <color name="colorOnBackground">#E6E6E6</color>
+    <color name="colorWindowBackground">#070014</color>
+
+    <color name="colorSurface">#0E0221</color>    <!--Container BottomNavigation - Container MaterialToolbar -->
+    <color name="colorOnSurface">#8A8A8A</color>  <!--Text label color (inActive) BottomNavigation -->
+    <color name="colorSurfaceVariant">#4D444B</color>
+    <color name="colorOnSurfaceVariant">#EDE0F4</color>
+    <color name="colorInverseSurface">#E6E6E6</color>
+    <color name="colorInverseOnSurface">#3A1E1E</color>
+    <color name="colorOutline">#A9A9A9</color>
+
+    <color name="colorShadow">#000000</color>
+    <color name="colorScrim">#000000</color>
+    <color name="colorSurfaceTint">#884589</color> <!-- falto -->
+    <color name="colorOutlineVariant">#D0C3CC</color>  <!-- falto -->
+
+    <color name="colorError">#CF6679</color>
+    <color name="colorErrorContainer">#8A0032</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorOnErrorContainer">#FFDAD6</color>
+
+    <!--TextAppearance Color Night-->
+    <color name="textColor">#FFFFFF</color>
+    <color name="textColorPrimary">#B1DB00</color>
+    <color name="textColorSecondary">#B3FFFFFF</color>
+    <color name="textColorHintDisabled">#80FFFFFF</color>
+
+    <!--colors icons-->
+    <color name="textColorActiveIcons">#B1DB00</color>
+    <color name="textColorInactiveIcons">#80FFFFFF</color>
+
+</resources>

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_detailMovieFragmentFullScreen"
             app:destination="@id/detailMovieFragmentFullScreen" />
+        <action
+            android:id="@+id/action_navigation_home_to_searchScreenFullFragment"
+            app:destination="@id/searchScreenFullFragment" />
     </fragment>
 
     <fragment
@@ -36,5 +39,11 @@
             android:name="movieCustom"
             app:argType="com.maggiver.movieshd.homeMovie.data.provider.remote.model.MovieCustom" />
     </dialog>
+
+    <dialog
+        android:id="@+id/searchScreenFullFragment"
+        android:name="com.maggiver.movieshd.homeMovie.ui.SearchScreenFullFragment"
+        android:label="fragment_search_screen_full"
+        tools:layout="@layout/fragment_search_screen_full" />
 
 </navigation>

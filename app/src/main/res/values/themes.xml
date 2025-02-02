@@ -1,56 +1,59 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="Theme.MoviesHD" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.MoviesHD" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-        <item name="colorPrimaryDark">@color/md_theme_light_colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
+        <item name="colorPrimaryInverse">@color/colorInversePrimary</item>
 
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
 
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorOnTertiary">@color/colorOnTertiary</item>
+        <item name="colorTertiaryContainer">@color/colorTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/colorOnTertiaryContainer</item>
 
 
-        <item name="background">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">#50FF17</item>
-        <item name="android:windowBackground">@color/md_theme_light_windowBackground</item>
+        <item name="background">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="android:windowBackground">@color/colorWindowBackground</item>
 
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
-        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
-        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
-        <item name="colorOutline">@color/md_theme_light_outline</item>
-        <item name="colorOutlineVariant">@color/md_theme_light_outlineVariant</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorSurfaceInverse">@color/colorInverseSurface</item>
+        <item name="colorOnSurfaceInverse">@color/colorInverseOnSurface</item>
+        <item name="colorOutline">@color/colorOutline</item>
+        <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
 
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="colorErrorContainer">@color/colorErrorContainer</item>
+        <item name="colorOnError">@color/colorOnError</item>
+        <item name="colorOnErrorContainer">@color/colorOnErrorContainer</item>
 
         <!-- TextAppereance color -->
-        <item name="android:textColor">@color/textColor_light</item>    <!--Atributo xml para establecer un color en el texto de cualquier vista dada.-->
-        <item name="android:textColorPrimary">@color/textColorPrimary_light</item>  <!--El color de texto más destacado: color de texto predeterminado para los botones habilitados y las vistas de texto grandes -->
-        <item name="android:textColorSecondary">@color/textColorSecondary_light</item>  <!--Color de texto secundario: color de texto predeterminado para las vistas de texto medianas y pequeñas. -->
-        <item name="android:textColorHint">@color/textColorHintDisabled_light</item>    <!--Sugerencias y texto deshabilitado-->
+        <item name="android:textColor">@color/textColor
+        </item>    <!--Atributo xml para establecer un color en el texto de cualquier vista dada.-->
+        <item name="android:textColorPrimary">@color/textColorPrimary
+        </item>  <!--El color de texto más destacado: color de texto predeterminado para los botones habilitados y las vistas de texto grandes -->
+        <item name="android:textColorSecondary">@color/textColorSecondary
+        </item>  <!--Color de texto secundario: color de texto predeterminado para las vistas de texto medianas y pequeñas. -->
+        <item name="android:textColorHint">@color/textColorHintDisabled
+        </item>    <!--Sugerencias y texto deshabilitado-->
 
         <item name="colorAccent">#344325</item>
         <item name="colorControlNormal">#344325</item>
         <item name="colorControlActivated">#344325</item>
         <item name="colorControlHighlight">#344325</item>
 
-        <item name="android:statusBarColor">@color/md_theme_light_windowBackground</item>
+        <item name="android:statusBarColor">@color/colorWindowBackground</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">#000000</item>
 
@@ -63,20 +66,13 @@
 
     </style>
 
-    <style name="DialogTheme" parent="Theme.MoviesHD">
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-
     <!--SPLASCREEN FOR APIS <= 30 ANDROID 11-->
     <style name="SplashScreenTheme" parent="Theme.SplashScreen.IconBackground">
 
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="windowSplashScreenBackground">@color/colorSurface</item>
 
         <!--<item name="android:windowBackground">@drawable/splash_api_android_down_30</item>-->
         <item name="windowSplashScreenAnimatedIcon">@drawable/img432</item>
@@ -85,5 +81,36 @@
         <item name="postSplashScreenTheme">@style/Theme.MoviesHD</item>
     </style>
 
+    <style name="DialogTheme" parent="Theme.MoviesHD">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <!-- Estilo personalizado para BottomNavigationView -->
+    <style name="CustomBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+
+        <!-- Color de fondo -->
+        <item name="backgroundTint">@color/colorPrimary</item>
+
+        <!-- Color del icono y texto cuando está seleccionado -->
+        <item name="itemIconTint">@color/bottom_nav_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_selector</item>
+
+        <!-- Elevación -->
+        <!-- <item name="elevation">8dp</item> -->
+
+        <!-- Altura del BottomNavigationView -->
+        <!-- <item name="itemPaddingBottom">8dp</item> -->
+
+    </style>
+
+    <style name="ThemeOverlay.MoviesHD.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 
 </resources>

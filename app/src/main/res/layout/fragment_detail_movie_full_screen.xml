@@ -83,7 +83,8 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/icon_count"
-                            android:src="@drawable/ic_like" />
+                            android:src="@drawable/ic_like"
+                            app:tint="@color/textColorActiveIcons" />
 
                         <TextView
                             android:id="@+id/tv_vote"
@@ -110,7 +111,8 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/icon_date_release"
-                            android:src="@drawable/ic_calendar" />
+                            android:src="@drawable/ic_calendar"
+                            app:tint="@color/textColorActiveIcons"/>
 
                         <TextView
                             android:id="@+id/tv_dateRelease"
@@ -137,7 +139,8 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:contentDescription="@string/icon_popularity"
-                            android:src="@drawable/ic_popularity" />
+                            android:src="@drawable/ic_popularity"
+                            app:tint="@color/textColorActiveIcons"/>
 
                         <TextView
                             android:id="@+id/tv_popularity"
