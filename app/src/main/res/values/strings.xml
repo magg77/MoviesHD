@@ -3,7 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="ltimas_en_cine">Últimas en cine</string>
+    <string name="movies_hd">MoviesHD</string>
+    <string name="ultimas_en_cine">Ver ahora</string>
     <string name="description_movie">Description movie</string>
     <string name="title_movie">Title Movie</string>
     <string name="dummy_button">Dummy Button</string>
@@ -13,4 +14,6 @@
     <string name="agregar_a_favoritos">Agregar a Favoritos</string>
     <string name="image_path_poster_movie">Image path poster movie</string>
     <string name="icon_date_release">Icon date release</string>
+    <string name="buscar_movies">Buscar movies</string>
+    <string name="mi_buscador">Mi Buscador</string>
 </resources>

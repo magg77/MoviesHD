@@ -4,9 +4,8 @@
 
     <!-- Light Theme Colors ______________________________________________________________ -->
 
-    <color name="md_theme_light_primary">#0E0221
-    </color>    <!--Text label color (active) BottomNavigation -->
-    <color name="md_theme_light_onPrimary">#E00000</color>
+    <color name="md_theme_light_primary">#0E0221</color>    <!--Text label color (active) BottomNavigation -->
+    <color name="md_theme_light_onPrimary">#FF8C00</color>
     <color name="md_theme_light_primaryContainer">#7D5BA6</color>
     <color name="md_theme_light_onPrimaryContainer">#37003C</color>
     <color name="md_theme_light_inversePrimary">#BB86FC</color>
