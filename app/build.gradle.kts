@@ -101,9 +101,12 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.activity)
 
-    //    hilt di
+    // Hilt core
     implementation(libs.hilt.android)
-    ksp("com.google.dagger:hilt-compiler:${rootProject.extra["hiltVersion"]}")
+    ksp(libs.hilt.android.compiler)
+    // Hilt para SavedStateHandle en ViewModels
+    implementation(libs.androidx.hilt.navigation.fragment)
+
 
     //client retrofit network
     implementation(libs.retrofit)

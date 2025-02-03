@@ -1,6 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
 
-    <!-- Base application theme. -->
     <style name="Theme.MoviesHD" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -18,7 +18,6 @@
         <item name="colorOnTertiary">@color/colorOnTertiary</item>
         <item name="colorTertiaryContainer">@color/colorTertiaryContainer</item>
         <item name="colorOnTertiaryContainer">@color/colorOnTertiaryContainer</item>
-
 
         <item name="background">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
@@ -89,7 +88,6 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-
     <!-- Estilo personalizado para BottomNavigationView -->
     <style name="CustomBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
 
@@ -106,11 +104,6 @@
         <!-- Altura del BottomNavigationView -->
         <!-- <item name="itemPaddingBottom">8dp</item> -->
 
-    </style>
-
-    <style name="ThemeOverlay.MoviesHD.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
-        <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 
 </resources>

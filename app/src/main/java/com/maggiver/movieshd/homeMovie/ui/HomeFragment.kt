@@ -14,18 +14,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.maggiver.movieshd.R
 import com.maggiver.movieshd.core.valueObject.AdapterMovies
 import com.maggiver.movieshd.core.valueObject.ResourceState
 import com.maggiver.movieshd.databinding.FragmentHomeBinding
-import com.maggiver.movieshd.homeMovie.data.provider.remote.model.MovieCustom
 import com.maggiver.movieshd.homeMovie.presentation.NowPlayingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -63,7 +62,6 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-
     //custom methods *******************************************************************************
 
     private fun setupLayoutsMaterialToolbar() {
@@ -78,7 +76,7 @@ class HomeFragment : Fragment() {
                     Log.i("searchMoviesHD", "buscar movie click")
 
                     val action =
-                        HomeFragmentDirections.actionNavigationHomeToSearchScreenFullFragment()
+                        HomeFragmentDirections.actionNavigationHomeToSearchMovieFragmentFullScreen()
                     findNavController().navigate(action)
 
                     true
@@ -127,7 +125,7 @@ class HomeFragment : Fragment() {
                             binding.psHome.visibility = View.VISIBLE
                         }
 
-                        is ResourceState.SuccesState -> {
+                        is ResourceState.SuccessState -> {
                             binding.psHome.visibility = View.GONE
 
                             binding.rvHomeFragment.adapter =

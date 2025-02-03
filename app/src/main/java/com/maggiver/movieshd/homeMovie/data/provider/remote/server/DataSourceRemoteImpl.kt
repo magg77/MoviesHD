@@ -2,6 +2,7 @@ package com.maggiver.movieshd.homeMovie.data.provider.remote.server
 
 import com.maggiver.movieshd.core.valueObject.ResourceState
 import com.maggiver.movieshd.homeMovie.data.provider.remote.model.NowPlayingResponse
+import com.maggiver.movieshd.homeMovie.data.provider.remote.model.SearchMovieResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -13,7 +14,9 @@ class DataSourceRemoteImpl @Inject constructor(private val webServiceContract: W
     override suspend fun getNowPlayingMoviesRemoteContract(): ResourceState<NowPlayingResponse> {
 
         return withContext(Dispatchers.IO) {
+
             try {
+
                 val response = webServiceContract.getNowPlayingMovies(
                     language = "es-ES", page = 1, region = "ES"
                 )
@@ -21,7 +24,7 @@ class DataSourceRemoteImpl @Inject constructor(private val webServiceContract: W
                 if (response.isSuccessful) {
                     val body = response.body()
                     if (body != null) {
-                        ResourceState.SuccesState(body) // ✅ Éxito con datos
+                        ResourceState.SuccessState(body) // ✅ Éxito con datos
                     } else {
                         ResourceState.FailureState("Respuesta vacía del servidor") // ⚠️ Cuerpo nulo
                     }
@@ -38,14 +41,76 @@ class DataSourceRemoteImpl @Inject constructor(private val webServiceContract: W
                     ResourceState.FailureState(errorMessage)
                 }
             } catch (e: IOException) {
-                ResourceState.FailureState("Error de red: ${e.message}") // ⚠️ Problemas de conectividad
+
+                // ⚠️ Problemas de conectividad
+                ResourceState.FailureState("Error de red: ${e.message}")
+
             } catch (e: retrofit2.HttpException) {
-                ResourceState.FailureState("Error HTTP: ${e.message}") // ⚠️ Respuesta HTTP fallida
+
+                // ⚠️ Respuesta HTTP fallida
+                ResourceState.FailureState("Error HTTP: ${e.message}")
+
             } catch (e: Exception) {
-                ResourceState.FailureState("Error inesperado: ${e.message}") // ⚠️ Cualquier otro error
+
+                // ⚠️ Cualquier otro error
+                ResourceState.FailureState("Error inesperado: ${e.message}")
+
             }
         }
 
+    }
+
+    override suspend fun getSearchMovieRemoteContract(query: String): ResourceState<SearchMovieResponse> {
+        return withContext(Dispatchers.IO) {
+
+            try {
+
+                val response = webServiceContract.getSearchMovie(
+                    query = query,
+                    include_adult = false,
+                    language = "es-ES",
+                    page = 1
+                )
+
+                // Verificar si la respuesta fue exitosa
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    if (body != null) {
+                        ResourceState.SuccessState(body) // ✅ Éxito con datos
+                    } else {
+                        ResourceState.FailureState("Respuesta vacía del servidor") // ⚠️ Cuerpo nulo
+                    }
+                } else {
+                    // Manejar errores HTTP específicos
+                    val errorMessage = when (response.code()) {
+                        400 -> "Solicitud incorrecta (Bad Request)"
+                        401 -> "No autorizado (Unauthorized)"
+                        403 -> "Prohibido (Forbidden)"
+                        404 -> "Recurso no encontrado (Not Found)"
+                        500 -> "Error interno del servidor"
+                        else -> "Error desconocido: ${response.code()}"
+                    }
+                    ResourceState.FailureState(errorMessage)
+                }
+
+
+            } catch (e: IOException) {
+
+                // ⚠️ Problemas de conectividad
+                ResourceState.FailureState("Error de red: ${e.message ?: "Desconocido IOException"}")
+
+            } catch (e: retrofit2.HttpException) {
+
+                // ⚠️ Respuesta HTTP fallida
+                ResourceState.FailureState("Error HTTP: ${e.message ?: "Desconocido HttpException"}")
+
+            } catch (e: Exception) {
+
+                // ⚠️ Cualquier otro error
+                ResourceState.FailureState("Error inesperado: ${e.message ?: "Desconocido Exception"}")
+
+            }
+        }
     }
 
 

@@ -16,4 +16,6 @@
     <string name="icon_date_release">Icon date release</string>
     <string name="buscar_movies">Buscar movies</string>
     <string name="mi_buscador">Mi Buscador</string>
+
+    <string name="search_no_results">No movie found</string>
 </resources>

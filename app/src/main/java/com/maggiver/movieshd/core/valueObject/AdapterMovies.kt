@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.maggiver.movieshd.R
 import com.maggiver.movieshd.core.utils.BaseViewHolder
 import com.maggiver.movieshd.core.utils.Constants
@@ -64,9 +65,16 @@ class AdapterMovies(
 
         override fun bind(item: MovieCustom, position: Int) = with(binding) {
 
+
             Glide.with(context)
                 .load("${Constants.IMG_MOVIE_DB_COVER}${item.posterPath}")
-                .into(imvMovie)
+                .apply(
+                    RequestOptions()
+                        .centerCrop()
+                        .placeholder(R.drawable.baseline_add_a_photo_24)
+                        .error(R.drawable.baseline_adb_24)
+                )
+                .into(binding.imvMovie)
 
             tvTitleMovie.text = item.title
             tvDescripShort.text =
