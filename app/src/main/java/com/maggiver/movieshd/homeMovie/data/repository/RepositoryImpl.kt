@@ -18,7 +18,16 @@ import javax.inject.Inject
 class RepositoryImpl @Inject constructor(private val dataSourceRemote: DataSourceRemoteContract) :
     RepositoryContract {
 
-    //get movies now playing
+    /**
+     * Obtiene una lista de películas en cartelera (Now Playing) de manera asincrónica,
+     * emitiendo un flujo de estados que incluye carga, éxito y error.
+     *
+     * Si hay conexión de red, se obtiene la respuesta remota y se mapea a una lista de `MovieCustom`.
+     * Si no hay conexión, se emite un error de red. El estado de carga se emite al inicio.
+     *
+     * @param reqireContext El contexto de la aplicación para verificar la conectividad de red.
+     * @return Un flujo de `ResourceState` que contiene la lista de películas o un mensaje de error.
+     */
     override suspend fun getNowPlayingMovieRepo(reqireContext: Context): Flow<ResourceState<List<MovieCustom>>> =
         channelFlow {
 
@@ -56,7 +65,18 @@ class RepositoryImpl @Inject constructor(private val dataSourceRemote: DataSourc
 
 
 
-    //search movies real time
+    /**
+     * Obtiene una lista de películas basadas en una búsqueda, primero verificando la conexión de red
+     * y luego obteniendo la respuesta de la fuente remota.
+     *
+     * Si no hay conexión de red, se retorna un estado de fallo. Si la solicitud remota es exitosa,
+     * se mapean los resultados y se retornan como una lista de `MovieSearchCustom`.
+     * Si ocurre un error en la solicitud remota, se retorna un mensaje de error.
+     *
+     * @param context El contexto de la aplicación para verificar la conectividad de red.
+     * @param query El término de búsqueda de películas.
+     * @return Un `ResourceState` que contiene la lista de películas o un mensaje de error.
+     */
     override suspend fun getSearchMovieRepo(
         context: Context,
         query: String

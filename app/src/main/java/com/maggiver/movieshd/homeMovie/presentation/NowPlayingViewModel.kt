@@ -38,13 +38,18 @@ class NowPlayingViewModel @Inject constructor(
     val uiState: StateFlow<ResourceState<List<MovieCustom>>> = _uiState
 
 
-    //search movies
+    // LiveData que almacena el término de búsqueda actual, inicializado con "comedia".
     private val currentMovieSearch = savedStateHandle.getLiveData<String>("searchMovie", "comedia")
+
     private val _movieSearchResults = MutableLiveData<ResourceState<List<MovieSearchCustom>>>()
     val movieSearchResults: LiveData<ResourceState<List<MovieSearchCustom>>> = _movieSearchResults
 
 
-    // ultimas peliculas en cines
+    /**
+     * Lanza una corrutina en el `viewModelScope` para obtener las películas en cartelera.
+     *
+     * @param context Contexto necesario para la ejecución del caso de uso.
+     */
     fun nowPlayingMovies(context: Context) = viewModelScope.launch {
         usecase.invoke(context)
             .onEach {
@@ -52,8 +57,27 @@ class NowPlayingViewModel @Inject constructor(
             }.launchIn(viewModelScope)
     }
 
+    /**
+     * Actualiza el término de búsqueda de películas en tiempo real y lo guarda en el `savedStateHandle`.
+     *
+     * Esto permite que el estado de búsqueda persista si el ViewModel es recreado,
+     * como en cambios de configuración (ej. rotación de pantalla).
+     *
+     * @param searchMovie Término de búsqueda ingresado por el usuario.
+     */
+    fun searchMovieRealTime(searchMovie: String) {
+        currentMovieSearch.value = searchMovie
+    }
 
-    // búsqueda de películas en tiempo real
+
+    /**
+     * Realiza una búsqueda de películas en tiempo real, emitiendo el estado de carga, éxito o error.
+     *
+     * La búsqueda se activa solo cuando el término cambia, utilizando `distinctUntilChanged`.
+     * Se ejecuta en el contexto de IO para operaciones en segundo plano.
+     *
+     * @return Un `LiveData` que emite el estado de la operación de búsqueda, incluyendo los estados de carga, éxito o error.
+     */
     fun fetchMovieSearch() =
         currentMovieSearch.distinctUntilChanged().switchMap { search ->
             liveData(viewModelScope.coroutineContext + Dispatchers.IO) {

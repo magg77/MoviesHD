@@ -124,7 +124,7 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
 
                 newText?.let {
                     Log.i("resultSearch", "data $it")
-                    viewModelSearchMovie.searchMovieRealTime(requireContext(), it)
+                    viewModelSearchMovie.searchMovieRealTime(it)
                 }
 
                 return true

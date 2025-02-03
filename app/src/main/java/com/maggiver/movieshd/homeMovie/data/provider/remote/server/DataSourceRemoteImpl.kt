@@ -11,6 +11,15 @@ import javax.inject.Inject
 class DataSourceRemoteImpl @Inject constructor(private val webServiceContract: WebServiceContract) :
     DataSourceRemoteContract {
 
+
+    /**
+     * Realiza una solicitud remota para obtener las películas en cartelera (Now Playing).
+     *
+     * La solicitud se ejecuta en un hilo IO para no bloquear el hilo principal. Se verifica la respuesta
+     * del servidor y se emite un estado de éxito o error según corresponda.
+     *
+     * @return Un `ResourceState` que contiene el resultado de la operación de búsqueda o un mensaje de error.
+     */
     override suspend fun getNowPlayingMoviesRemoteContract(): ResourceState<NowPlayingResponse> {
 
         return withContext(Dispatchers.IO) {
@@ -60,6 +69,16 @@ class DataSourceRemoteImpl @Inject constructor(private val webServiceContract: W
 
     }
 
+
+    /**
+     * Realiza una solicitud remota para buscar una película usando el servicio web.
+     *
+     * Se ejecuta de manera suspendida en un contexto IO para manejar la solicitud en segundo plano.
+     * La respuesta es procesada y emitida como un estado que indica si la operación fue exitosa o fallida.
+     *
+     * @param query Término de búsqueda ingresado por el usuario.
+     * @return Un `ResourceState` que contiene el resultado de la búsqueda o un mensaje de error.
+     */
     override suspend fun getSearchMovieRemoteContract(query: String): ResourceState<SearchMovieResponse> {
         return withContext(Dispatchers.IO) {
 

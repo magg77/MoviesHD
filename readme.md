@@ -51,6 +51,9 @@ This is a clean architecture app  built with
 3️⃣ Dependency Injection
 - Hilt is used for dependency injection, which makes the code easier to scale.
 
+4️⃣ Api
+-For the development of this test, the TMDb movie API was used. It is ideal for technical testing on Android due to its free API, real data and clear documentation, allowing the evaluation of REST consumption, UI management and architecture.
+
 ![Test Image 1](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
 
