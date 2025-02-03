@@ -1,8 +1,32 @@
-# MovieHD
+# 📱 Proyecto de Aplicación Android
+
+# Screenshots
+![Test Image 2](https://github.com/magg77/MoviesHD/blob/develop/screens/App-MovieHD.jpg)
+
+# 🛠 Requisitos
+Movie app developed in Kotlin to be run on Android mobile devices. Before running the project, make sure you have the following installed:
+
+- Android Studio Ladybug Feature Drop | 2024.2.2
+- Minimum version 23
+- Maximum version 35
+- JDK 11 or higher = JvmTarget = "11"
+- Kotlin compiler version = "2.0.21"
+- Uses AndroidX libraries and Jetpack components
+- Internet connection (to download dependencies and consume external APIs, if applicable)
+
+# 🚀 Instrucciones para ejecutar el proyecto
+- git clone https://github.com/magg77/MoviesHD.git
+- cd tu-repositorio
+- Abrir el proyecto con el ide android studio
+- sync dependencies with gradle
+- ./gradlew build
+
+# 📦 Technologies and libraries used in the MovieHD App
 This is a clean architecture app  built with
 
-- Coroutines
+- Kotlin: Main development language.
 - MVVM
+- Coroutines
 - Extension Functions
 - Dagger Hilt
 - Retrofit
@@ -14,20 +38,25 @@ This is a clean architecture app  built with
 - Livedata
 - Material design theming
 - Support for dark and light mode
+- AndroidX and Jetpack Components: Modern architecture and backward compatibility.
+- tom.libs: dependency management
 
-# Architecture
+# 🏗️ Technical Decisions
+1️⃣ Project Architecture
+- MVVM (Model-View-ViewModel) has been implemented to ensure separation of responsibilities and better maintainability.
 
-![Test Image 4](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
+2️⃣ Dependency Management
+- tom.libs makes dependency management easier by centralizing versions and references into a single file, reducing redundancy and avoiding conflicts between libraries. This improves project maintainability and consistency.
 
-# Screenshots
-![Test Image 4](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
+3️⃣ Dependency Injection
+- Hilt is used for dependency injection, which makes the code easier to scale.
 
+![Test Image 1](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
-Project purpose is architecture not UI, feel free to do a PR to change it
 
 # Support 😄
 
-If this repo helped you , you can join the [stargazers](https://github.com/gastsail/TragosApp/stargazers) for this repo ⭐
+Follow me on Github [User :>](hhttps://github.com/magg77/MoviesHD)  ⭐
 
 
 
