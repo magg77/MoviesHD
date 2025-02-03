@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -105,14 +107,12 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
 
     private fun setupLayuotToolbar() {
 
-        binding.searchMovie.setOnQueryTextFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                binding.searchMovie.post {
-                    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.showSoftInput(binding.searchMovie.findFocus(), InputMethodManager.SHOW_IMPLICIT)
-                }
-            }
-        }
+        //focus searchView
+        binding.searchMovie.onActionViewExpanded()
+
+        // Se asegura de que el teclado se muestre
+        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(binding.searchMovie, InputMethodManager.SHOW_IMPLICIT)
 
         binding.searchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -122,16 +122,8 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
             override fun onQueryTextChange(newText: String?): Boolean {
 
                     newText?.let {
-
-                        if (it.length >= 3) { // Solo buscar si el texto tiene 3 o más caracteres
-                            Log.i("resultSearch", "data $it")
-                            viewModelSearchMovie.searchMovieRealTime(requireContext(), it)
-                        } else {
-                            // Limpiar la lista si el texto es demasiado corto
-
-                            //binding.rvMoviesSearch.adapter adapter = MovieAdapter(emptyList())
-
-                        }
+                        Log.i("resultSearch", "data $it")
+                        viewModelSearchMovie.searchMovieRealTime(requireContext(), it)
                     }
 
                 return true

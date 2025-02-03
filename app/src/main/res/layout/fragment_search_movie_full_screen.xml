@@ -26,6 +26,7 @@
             android:queryBackground="@android:color/transparent"
             android:queryHint="Search cocktail"
             android:searchHintIcon="@null"
+            app:queryHint="Comedia"
             android:searchIcon="@null" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -37,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mcv_search_view" />
+        app:layout_constraintTop_toBottomOf="@+id/content_search_movie" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -54,7 +55,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginHorizontal="@dimen/margin_normal"
-        android:layout_marginVertical="@dimen/margin_normal"
         android:layout_marginTop="@dimen/margin_small"
         tools:listitem="@layout/movie_search"
         app:layout_constraintBottom_toBottomOf="parent"
