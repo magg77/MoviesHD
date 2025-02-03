@@ -9,23 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maggiver.movieshd.R
 import com.maggiver.movieshd.core.utils.hide
 import com.maggiver.movieshd.core.utils.show
 import com.maggiver.movieshd.core.utils.showIf
 import com.maggiver.movieshd.core.utils.showToast
-import com.maggiver.movieshd.core.valueObject.SearchAdapter
 import com.maggiver.movieshd.core.valueObject.ResourceState
+import com.maggiver.movieshd.core.valueObject.SearchAdapter
 import com.maggiver.movieshd.databinding.FragmentSearchMovieFullScreenBinding
 import com.maggiver.movieshd.homeMovie.data.provider.remote.model.MovieSearchCustom
+import com.maggiver.movieshd.homeMovie.data.provider.remote.model.toMovieCustom
 import com.maggiver.movieshd.homeMovie.presentation.NowPlayingViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -111,7 +111,8 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
         binding.searchMovie.onActionViewExpanded()
 
         // Se asegura de que el teclado se muestre
-        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(binding.searchMovie, InputMethodManager.SHOW_IMPLICIT)
 
         binding.searchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -121,10 +122,10 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
 
             override fun onQueryTextChange(newText: String?): Boolean {
 
-                    newText?.let {
-                        Log.i("resultSearch", "data $it")
-                        viewModelSearchMovie.searchMovieRealTime(requireContext(), it)
-                    }
+                newText?.let {
+                    Log.i("resultSearch", "data $it")
+                    viewModelSearchMovie.searchMovieRealTime(requireContext(), it)
+                }
 
                 return true
             }
@@ -132,18 +133,18 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
         })
     }
 
-    private fun setupLayuotSearchRV(){
+    private fun setupLayuotSearchRV() {
         searchAdapter = SearchAdapter(requireContext(), this)
         binding.rvMoviesSearch.layoutManager = LinearLayoutManager(requireContext())
         binding.rvMoviesSearch.adapter = searchAdapter
     }
 
-    private fun setupObserverSearch(){
+    private fun setupObserverSearch() {
         viewModelSearchMovie.fetchMovieSearch().observe(viewLifecycleOwner, Observer { result ->
 
             binding.progressBar.showIf { result is ResourceState.LoadingState }
 
-            when(result){
+            when (result) {
 
                 is ResourceState.LoadingState -> {
                     binding.emptyContainer.root.hide()
@@ -173,11 +174,11 @@ class SearchMovieFragmentFullScreen : DialogFragment(), SearchAdapter.OnMovieSea
     }
 
     override fun onMovieSearchCustom(movieSearchCustom: MovieSearchCustom, position: Int) {
-        /*findNavController().navigate(
-            MainFragmentDirections.actionMainFragmentToTragosDetalleFragment(
-                cocktail
+        findNavController().navigate(
+            SearchMovieFragmentFullScreenDirections.actionSearchMovieFragmentFullScreenToDetailMovieFragmentFullScreen(
+                movieCustom = movieSearchCustom.toMovieCustom()
             )
-        )*/
+        )
     }
 
 }

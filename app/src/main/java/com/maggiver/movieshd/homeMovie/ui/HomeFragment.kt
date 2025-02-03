@@ -75,8 +75,7 @@ class HomeFragment : Fragment() {
                     //Logica
                     Log.i("searchMoviesHD", "buscar movie click")
 
-                    val action =
-                        HomeFragmentDirections.actionNavigationHomeToSearchMovieFragmentFullScreen()
+                    val action = HomeFragmentDirections.actionNavigationHomeToSearchMovieFragmentFullScreen()
                     findNavController().navigate(action)
 
                     true

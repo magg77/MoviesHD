@@ -76,3 +76,14 @@ data class ListMovieSearchCustom(
     val listMovieSearch: List<MovieSearchCustom> = listOf()
 ) : Parcelable
 
+fun MovieSearchCustom.toMovieCustom(): MovieCustom = MovieCustom(
+    id = this.id,
+    posterPath = this.posterPath ?: "",
+    title = this.title,
+    overview = this.overview,
+    voteCount = this.voteCount,
+    releaseDate = this.releaseDate,
+    popularity = this.popularity,
+    favoriteState = false
+
+)

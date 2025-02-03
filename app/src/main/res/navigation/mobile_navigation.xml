@@ -44,6 +44,10 @@
         android:id="@+id/searchMovieFragmentFullScreen"
         android:name="com.maggiver.movieshd.homeMovie.ui.SearchMovieFragmentFullScreen"
         android:label="fragment_search_screen_full"
-        tools:layout="@layout/fragment_search_movie_full_screen" />
+        tools:layout="@layout/fragment_search_movie_full_screen" >
+        <action
+            android:id="@+id/action_searchMovieFragmentFullScreen_to_detailMovieFragmentFullScreen"
+            app:destination="@id/detailMovieFragmentFullScreen" />
+    </dialog>
 
 </navigation>
