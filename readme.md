@@ -56,7 +56,7 @@ This is a clean architecture app  built with
 
 # Support 😄
 
-Follow me on Github [User :>](hhttps://github.com/magg77/MoviesHD)  ⭐
+Follow me on Github [User :>](https://github.com/magg77/MoviesHD)  ⭐
 
 
 
