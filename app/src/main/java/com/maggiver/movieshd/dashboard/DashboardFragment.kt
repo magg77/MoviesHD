@@ -1,4 +1,4 @@
-package com.maggiver.movieshd.ui.dashboard
+package com.maggiver.movieshd.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.maggiver.movieshd.ui.notifications
+package com.maggiver.movieshd.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

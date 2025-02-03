@@ -1,1 +1,0 @@
-libs.versions.toml gestión y admnistracion de dependencias

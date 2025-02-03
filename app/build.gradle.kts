@@ -123,8 +123,15 @@ dependencies {
     //  show-images
     implementation(libs.glide)
 
-    //  test
+    // To use the JUnit Extension APIs
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
+    // Kotlin extensions for androidx.test.ext.junit
+    androidTestImplementation(libs.androidx.junit.ktx)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.core.testing) // Para LiveData testing
+
     androidTestImplementation(libs.androidx.espresso.core)
 }

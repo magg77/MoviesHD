@@ -44,6 +44,7 @@ class NowPlayingViewModel @Inject constructor(
     val movieSearchResults: LiveData<ResourceState<List<MovieSearchCustom>>> = _movieSearchResults
 
 
+    // ultimas peliculas en cines
     fun nowPlayingMovies(context: Context) = viewModelScope.launch {
         usecase.invoke(context)
             .onEach {
@@ -52,28 +53,7 @@ class NowPlayingViewModel @Inject constructor(
     }
 
 
-    // Búsqueda de películas en tiempo real
-    fun searchMovieRealTime(context: Context, searchMovie: String) {
-        currentMovieSearch.value = searchMovie
-
-        /*
-        currentMovieSearch.distinctUntilChanged().observeForever { searchQuery ->
-            viewModelScope.launch(Dispatchers.IO) {
-
-                _movieSearchResults.postValue(ResourceState.LoadingState())
-
-                try {
-                    val result = usecase.getSearchMovieUseCase(query = searchQuery, context = context)
-                    _movieSearchResults.postValue(result)
-                } catch (e: Exception) {
-                    _movieSearchResults.postValue(ResourceState.FailureState(e.message ?: "Error desconocido"))
-                }
-            }
-        }
-        */
-
-    }
-
+    // búsqueda de películas en tiempo real
     fun fetchMovieSearch() =
         currentMovieSearch.distinctUntilChanged().switchMap { search ->
             liveData(viewModelScope.coroutineContext + Dispatchers.IO) {
